@@ -1,0 +1,40 @@
+﻿<Window x:Class="Design_Patters_Jaar2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Design_Patters_Jaar2"
+        mc:Ignorable="d"
+        Title="Design Patterns - Jaar 2" Height="960" Width="1440" ResizeMode="NoResize">
+    <Grid>
+        <DockPanel>
+            <ToolBar Name="ToolbarDEP" DockPanel.Dock="Bottom" Height="75" Background="BlueViolet">
+                <Button Name="BtnEllipse" Content="Ellipse" Height="25" Width="60" BorderBrush="#FF969696" Click="BtnEllipse_Click" Margin="0,21,0,0" Background="White" FontFamily="Impact" VerticalAlignment="Top" />
+                <Button Name="BtnRectangle" BorderBrush="#FF969696" Content="Rectangle" Width="60" Click="BtnRectangle_Click" Margin="0,0,0,24" Background="White" FontFamily="Impact" VerticalAlignment="Bottom" Height="25"/>
+                <Button Name="BtnSelect" BorderBrush="#FF969696" Content="Select" Height="25" Width="60" Click="BtnSelect_Click" Margin="0,6,0,9" Background="White" FontFamily="Impact"/>
+                <Button Name="BtnMove" BorderBrush="#FF969696" Content="Move" Height="25" Width="60" Click="BtnMove_Click" Margin="0,6,0,9" Background="White" FontFamily="Impact"/>
+                <Button Name="BtnResize" BorderBrush="#FF969696" Content="Resize" Height="25" Width="60" Click="BtnResize_Click" Margin="0,6,0,9" Background="White" FontFamily="Impact"/>
+                <Button Name="BtnOrdanment" BorderBrush="#FF969696" Content="Ordament" Height="25" Width="60" Click="BtnOrdanment_Click" Margin="0,6,0,9" Background="White" FontFamily="Impact"/>
+                <Button Name="BtnGroup" BorderBrush="#FF969696" Content="GroupIn" Height="25" Width="60" Click="BtnGroup_Click" Margin="0,6,0,9" Background="White" FontFamily="Impact"/>
+                <Button Name="BtnUngroup" BorderBrush="#FF969696" Content="UnGroup" Height="25" Width="60" Click="BtnUngroup_Click" Margin="0,6,0,9" Background="White" FontFamily="Impact"/>
+                <Button Name="BtnSave" BorderBrush="#FF969696" Content="Save" Height="25" Width="60" Click="BtnSave_Click" Margin="0,6,0,9" Background="White" FontFamily="Impact"/>
+                <Button Name="BtnLoad" BorderBrush="#FF969696" Content="Load" Height="25" Width="60" Click="BtnLoad_Click" Margin="0,6,0,9" Background="White" FontFamily="Impact"/>
+                <Button Name="BtnUndo" BorderBrush="#FF969696" Content="Undo" Height="25" Width="60" Click="BtnUndo_Click" Margin="0,6,0,9" Background="White" FontFamily="Impact"/>
+                <Button Name="BtnRedo" BorderBrush="#FF969696" Content="Redo" Height="25" Width="60" Click="BtnRedo_Click" Margin="0,18,0,21" Background="White" FontFamily="Impact"/>
+                <TextBox x:Name="OrnamentTextBox" TextWrapping="Wrap" Text="OrnamentText" Width="197" Margin="0,10,0,0" KeyDown="OrnamentTextBox_KeyDown" Visibility="Hidden" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="13" Background="White" FontFamily="Impact"/>
+                <GroupBox Name="OrnamentLocationBox" Header="OrnamentLocation" Height="90" VerticalAlignment="Top" Width="110" Visibility="Hidden">
+                    <StackPanel Name="LocationPanel">
+                        <RadioButton Content="Top" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButtonChecked" IsChecked="True"/>
+                        <RadioButton Content="Bot" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButtonChecked"/>
+                        <RadioButton Content="Left" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButtonChecked"/>
+                        <RadioButton Content="Right" HorizontalAlignment="Left" VerticalAlignment="Top" Checked="RadioButtonChecked"/>
+                    </StackPanel>
+                </GroupBox>
+
+            </ToolBar>
+
+            <Canvas Name="DepPat" Background="White" MouseDown="DepPat_MouseDown" MouseUp="DepPat_MouseUp" MouseMove="DepPat_MouseMove" Margin="0,5,0,0">
+            </Canvas>
+        </DockPanel>
+    </Grid>
+</Window>

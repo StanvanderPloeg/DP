@@ -1,0 +1,30 @@
+FigList_Gr:0
+Ellipse
+314 178 658 340
+FigList_Gr:0
+Ellipse
+559 271 833 425
+FigList_Gr:0
+Ellipse
+712 84 916 233
+FigList_Gr:0
+Ellipse
+832 375 1023 482
+FigList_Gr:0
+Ellipse
+284 437 412 598
+FigList_Gr:0
+Ellipse
+434 328 577 660
+FigList_Gr:0
+Ellipse
+622 469 997 599
+FigList_Gr:0
+Ellipse
+708 348 1015 671
+FigList_Gr:0
+Ellipse
+1128 103 1161 431
+FigList_Gr:0
+Rectangle
+549 320 863 545

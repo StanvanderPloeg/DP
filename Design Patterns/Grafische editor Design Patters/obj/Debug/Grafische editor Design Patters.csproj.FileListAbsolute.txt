@@ -1,0 +1,15 @@
+D:\Users\Stan\Documents\Design Patterns\Grafische editor Design Patters\bin\Debug\Grafische editor Design Patters.exe.config
+D:\Users\Stan\Documents\Design Patterns\Grafische editor Design Patters\bin\Debug\Grafische editor Design Patters.exe
+D:\Users\Stan\Documents\Design Patterns\Grafische editor Design Patters\bin\Debug\Grafische editor Design Patters.pdb
+D:\Users\Stan\Documents\Design Patterns\Grafische editor Design Patters\obj\Debug\Grafische editor Design Patters.csprojResolveAssemblyReference.cache
+D:\Users\Stan\Documents\Design Patterns\Grafische editor Design Patters\obj\Debug\MainWindow.g.cs
+D:\Users\Stan\Documents\Design Patterns\Grafische editor Design Patters\obj\Debug\App.g.cs
+D:\Users\Stan\Documents\Design Patterns\Grafische editor Design Patters\obj\Debug\Grafische editor Design Patters_MarkupCompile.cache
+D:\Users\Stan\Documents\Design Patterns\Grafische editor Design Patters\obj\Debug\Grafische editor Design Patters_MarkupCompile.lref
+D:\Users\Stan\Documents\Design Patterns\Grafische editor Design Patters\obj\Debug\MainWindow.baml
+D:\Users\Stan\Documents\Design Patterns\Grafische editor Design Patters\obj\Debug\Grafische editor Design Patters.g.resources
+D:\Users\Stan\Documents\Design Patterns\Grafische editor Design Patters\obj\Debug\Grafische_editor_Design_Patters.Properties.Resources.resources
+D:\Users\Stan\Documents\Design Patterns\Grafische editor Design Patters\obj\Debug\Grafische editor Design Patters.csproj.GenerateResource.Cache
+D:\Users\Stan\Documents\Design Patterns\Grafische editor Design Patters\obj\Debug\Grafische editor Design Patters.csproj.CoreCompileInputs.cache
+D:\Users\Stan\Documents\Design Patterns\Grafische editor Design Patters\obj\Debug\Grafische editor Design Patters.exe
+D:\Users\Stan\Documents\Design Patterns\Grafische editor Design Patters\obj\Debug\Grafische editor Design Patters.pdb
