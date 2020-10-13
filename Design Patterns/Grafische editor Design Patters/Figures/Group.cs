@@ -8,9 +8,6 @@ using System.Threading.Tasks;
 using System.Windows;
 
 
-// Group: GroupCommand nieuwe groep aangemaakt deze moet in algemene component lijst komen. 
-// Group toevoegd aan lijst heb je dubbele items ( Figs / Group )
-// Nieuwe Group toevoegen betekend figuren idivuidueel verwijderen.
 
 
 namespace Grafische_editor_Design_Patters.Figures
