@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Grafische_editor_Design_Patters.Figures;
+using System.Collections.Generic;
 using System.Windows;
 namespace Design_Patters_Jaar2
 {
@@ -6,8 +7,8 @@ namespace Design_Patters_Jaar2
     class MoveShape : IVisitor
     {
         Point end, start;
-        List<Figure> FigsSel;
-        public MoveShape(Point s, Point e, List<Figure> SF)
+        List<Component> FigsSel;
+        public MoveShape(Point s, Point e, List<Component> SF)
         {
             start = s;
             end = e;
@@ -21,6 +22,10 @@ namespace Design_Patters_Jaar2
             if (!FigsSel.Contains(F.Parent))
                 F.Move(moveX, moveY);
 
+        }
+        public void Visit(Group group)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

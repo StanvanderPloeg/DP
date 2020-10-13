@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grafische_editor_Design_Patters.Figures;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -25,7 +26,7 @@ namespace Design_Patters_Jaar2
          * Canvas C - Canvas
          * List<Figure> FA - Figures List
          */
-        public void Ellipse(Point S, Point E, Canvas C, List<Figure> FA)
+        public void Ellipse(Point S, Point E, Canvas C, List<Component> FA)
         {
             DrwEll Ell = new DrwEll(S, E, C, FA);
             if (Counter <= ComI.Count()) {
@@ -45,7 +46,7 @@ namespace Design_Patters_Jaar2
         * Canvas C - Canvas
         * List<Figure> FA - Figures List
         */
-        public void Rectangle(Point S, Point E, Canvas C, List<Figure> FA)
+        public void Rectangle(Point S, Point E, Canvas C, List<Component> FA)
         {
             DrwRec Rec = new DrwRec(S, E, C, FA);
             if (Counter <= ComI.Count()) {
@@ -59,7 +60,7 @@ namespace Design_Patters_Jaar2
         /**
          * Select Shapes on a certain point
          */
-        public void SelectShape(Point S, Point E, Canvas C, List<Figure> FA, ref List<Figure> FS, Border B)
+        public void SelectShape(Point S, Point E, Canvas C, List<Component> FA, ref List<Component> FS, Border B)
         {
             Selection Sh = new Selection(S, E, FA, ref FS, B);
             if (Counter <= ComI.Count()) {
@@ -71,12 +72,12 @@ namespace Design_Patters_Jaar2
         }
 
         /**
-         *  Add Group to Command List
+         *  Add GroupCommand to Command List
          */
-        public void Group(Point S, Point E, List<Figure> FA, ref List<Figure> FS, Border B)
+        public void Group(Point S, Point E, List<Component> FA, ref List<Component> FS, Border B)
         {
 
-            Group G = new Group(S, E, FS, FA, B);
+            GroupCommand G = new GroupCommand(S, E, FS, FA, B);
             if (Counter <= ComI.Count()) {
                 ComI.Insert(Counter, G);
             } else {
@@ -89,7 +90,7 @@ namespace Design_Patters_Jaar2
         /**
          *  Add UnGroup to Command List
          */
-        public void DeGroup(Point S, Point E, List<Figure> FA, ref List<Figure> FS, Border B)
+        public void DeGroup(Point S, Point E, List<Component> FA, ref List<Component> FS, Border B)
         {
             UnGroup Go = new UnGroup(S, E, FS, FA, B);
             if (Counter <= ComI.Count()) {
@@ -103,7 +104,7 @@ namespace Design_Patters_Jaar2
         /**
          * Add Ornament on a Figure
          */
-        public void AddOrnament(ref List<Figure> FS, string Or, IDec Dec)
+        public void AddOrnament(ref List<Component> FS, string Or, IDec Dec)
         {
             foreach (Figure F in FS)
             {
@@ -124,7 +125,7 @@ namespace Design_Patters_Jaar2
          * Clear Canvas
          * Execute all Commands in ComI
          */
-        public void Undo(Canvas C, List<Figure> AF, Border SB, Border GB)
+        public void Undo(Canvas C, List<Component> AF, Border SB, Border GB)
         {
             C.Children.Clear();
             C.Children.Add(SB);

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Grafische_editor_Design_Patters.Figures;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -12,8 +13,8 @@ namespace Design_Patters_Jaar2
      */
     class Selection : CommandI
     {
-        private List<Figure> FigSel;
-        private readonly List<Figure> FigAll;
+        private List<Component> FigSel;
+        private readonly List<Component> FigAll;
         private Point Start, End;
         private Border SelectRad;
 
@@ -26,7 +27,7 @@ namespace Design_Patters_Jaar2
          * List -- List containing selected figs
          * Border -- Area that is selected
          */
-        public Selection(Point S, Point E, List<Figure> FA, ref List<Figure> FS, Border SB)
+        public Selection(Point S, Point E, List<Component> FA, ref List<Component> FS, Border SB)
         {
             FigSel = FS;
             FigAll = FA;

@@ -11,7 +11,7 @@ namespace Design_Patters_Jaar2
 {
     /**
      * Abstract class with all drawable figures
-     * Consist out of Move, Resize and Group functions
+     * Consist out of Move, Resize and GroupCommand functions
      * 
      * Ordanments are linked to canvas
      */
@@ -22,9 +22,12 @@ namespace Design_Patters_Jaar2
         public Shape Fig;
         public bool IsGrouped;
         public Figure Parent { get; private set; }
+        public Ornament Ornaments { get; internal set; }
+
         public string Type;
         public readonly Canvas DepPat;
         private readonly IFig DeliFig;
+
         public Figure(Shape S, string T, Canvas C)
         {
             Fig = S;
@@ -109,66 +112,6 @@ namespace Design_Patters_Jaar2
             Fig.Stroke = Brushes.DarkGray;
         }
 
-        // Return List with figures
-        public List<Figure> getGroup()
-        {
-            return FigList_Gr;
-        }
-
-        // get size of Group
-        public int getGroupS()
-        {
-            int size = 0;
-            if (FigList_Gr.Count() == 0)
-                return -1;
-            foreach (Figure F in FigList_Gr)
-            {
-
-                size += F.getGroupS();
-                if (size == -1)
-                    size = 1;
-            }
-            return size;
-        }
-        
-        // addGroup new figure to group list
-        public void addGroup(Figure F)
-        {
-            if (this != F && F.IsGrouped != true)
-            {
-                FigList_Gr.Add(F);
-                F.AddParent(this);
-                F.IsGrouped = true;
-            }
-        }
-
-        public void AddParent(Figure F)
-        {
-            if (Parent == null)
-            {
-                Parent = F;
-            }
-        }
-
-        // Delete figure from group
-        public void delGroup(Figure F)
-        {
-            List<Figure> RemFigs = new List<Figure>();
-            foreach (Figure Figs in FigList_Gr)
-            {
-                if (Figs == F)
-                {
-                    RemFigs.Add(F);
-                }
-            }
-            foreach (Figure Figs in RemFigs)
-            {
-                Figs.Parent = null;
-                FigList_Gr.Remove(Figs);
-                F.IsGrouped = false;
-            }
-        }
-
         // Checks current position, turns left / right if needed 
         public void ControlPosition()
         {
@@ -208,14 +151,10 @@ namespace Design_Patters_Jaar2
             Canvas.SetTop(Fig, Canvas.GetTop(Fig) + y);
             Canvas.SetRight(Fig, Canvas.GetRight(Fig) + x);
             Canvas.SetBottom(Fig, Canvas.GetBottom(Fig) + y);
-            foreach (Ornament OR in Ornaments) {
-                OR.LocChange();
-            }
+            //foreach (Ornament OR in Ornaments) {
+            //    OR.LocChange();
+            //}
             ControlPosition();
-            foreach (Figure F in FigList_Gr) {
-
-                F.Move(x, y);
-            }
 
         }
 
@@ -229,28 +168,23 @@ namespace Design_Patters_Jaar2
             Right = Canvas.GetLeft(Fig) + SizeX;
             Fig.Height = SizeY;
             Fig.Width  = SizeX;
-            SetPosition(Canvas.GetLeft(Fig), Canvas.GetTop(Fig), Canvas.GetLeft(Fig) + SizeX, Canvas.GetTop(Fig) + SizeY);
+
+            Point PL = new Point();
+            PL.X = Canvas.GetLeft(Fig);
+            PL.Y = Canvas.GetTop(Fig);
+
+            SetPosition(PL);
 
             ControlPosition();
-
-            foreach (Figure F in FigList_Gr)
-            {
-                F.Resize(Start, End);
-            }
         }
 
         public void Accept(IVisitor v)
         {
-            foreach (Figure F in FigList_Gr)
-            {
-                F.Accept(v);
-            }
-            v.Visit(this);
-        }
-
-        public List<Ornament> GetOrnament()
-        {
-            return Ornaments;
+            //foreach (Figure F in FigList_Gr)
+            //{
+            //    F.Accept(v);
+            //}
+            //v.Visit(this);
         }
 
     }

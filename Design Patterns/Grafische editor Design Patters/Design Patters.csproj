@@ -86,7 +86,7 @@
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Button_Actions\DrwEll.cs" />
     <Compile Include="Button_Actions\DrwRect.cs" />
-    <Compile Include="Button_Actions\Group.cs" />
+    <Compile Include="Button_Actions\GroupCommand.cs" />
     <Compile Include="Button_Actions\UnGroup.cs" />
     <Compile Include="Button_Actions\Invoker.cs" />
     <Compile Include="Interfaces\IDecorator.cs" />
@@ -99,7 +99,7 @@
     <Compile Include="Button_Actions\Selection.cs" />
     <Compile Include="Interfaces\Ivisitable.cs" />
     <Compile Include="Interfaces\IVisitor.cs" />
-    <Compile Include="Visit\Visitor.cs" />
+    <Compile Include="Visit\ResizeVisitor.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

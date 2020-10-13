@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grafische_editor_Design_Patters.Figures;
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,12 +16,12 @@ namespace Design_Patters_Jaar2
     {
         private Point Start, End;
         private Canvas DepPat;
-        private List<Figure> FigsAll;
+        private List<Component> FigsAll;
 
         /**
          * DrwEll consist out of Start / End point from Mouse + List of all Figures
          */
-        public DrwEll(Point S, Point E, Canvas C, List<Figure> FA)
+        public DrwEll(Point S, Point E, Canvas C, List<Component> FA)
         {
             Start = S;
             End = E;

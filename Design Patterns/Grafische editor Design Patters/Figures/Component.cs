@@ -8,8 +8,9 @@ using System.Windows;
 
 namespace Grafische_editor_Design_Patters.Figures
 {
-    interface Component : IVisitable
+    public interface Component : IVisitable
     {
+
         void SetPosition(Point P);
         Point GetPosition();
         double GetWidth();

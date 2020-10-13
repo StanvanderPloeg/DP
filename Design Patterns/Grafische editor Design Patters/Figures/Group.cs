@@ -1,14 +1,21 @@
 ﻿using Design_Patters_Jaar2;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
+
+// Group: GroupCommand nieuwe groep aangemaakt deze moet in algemene component lijst komen. 
+// Group toevoegd aan lijst heb je dubbele items ( Figs / Group )
+// Nieuwe Group toevoegen betekend figuren idivuidueel verwijderen.
+
+
 namespace Grafische_editor_Design_Patters.Figures
 {
-    class Group : Component
+    public class Group : Component
     {
         // List with all Figures that belong to the figure group
         private List<Component> ComponentList = new List<Component>();
@@ -21,24 +28,42 @@ namespace Grafische_editor_Design_Patters.Figures
         double Height;
         double Width;
 
+
+        public void Add(Component C)
+        {
+            ComponentList.Add(C);
+        }
+
+        public void Delete(Component C)
+        {
+            ComponentList.Remove(C);
+        }
+
         public void Accept(IVisitor v)
         {
-            throw new NotImplementedException();
+            v.Visit(this);
         }
 
         public void Deselect()
         {
-            throw new NotImplementedException();
+            foreach(Component C in ComponentList)
+            {
+                C.Deselect();
+            }
         }
 
         public void Resize(Point Start, Point End)
         {
+            // Kan met Visitor
             throw new NotImplementedException();
         }
 
         public void Select()
         {
-            throw new NotImplementedException();
+            foreach (Component C in ComponentList)
+            {
+                C.Select();
+            }
         }
 
         public void SetPosition(Point P)
@@ -55,8 +80,6 @@ namespace Grafische_editor_Design_Patters.Figures
 
                 C.SetPosition(P);
             }
-
-            // throw new NotImplementedException();
         }
 
         public void CalcProperties()
@@ -102,17 +125,27 @@ namespace Grafische_editor_Design_Patters.Figures
 
         public Point GetPosition()
         {
-            throw new NotImplementedException();
+            CalcProperties();
+
+            Point P = new Point();
+            P.X = this.X;
+            P.Y = this.Y;
+
+            return P;
         }
 
         public double GetWidth()
         {
-            throw new NotImplementedException();
+            CalcProperties();
+
+            return this.Width;
         }
 
         public double GetHeight()
         {
-            throw new NotImplementedException();
+            CalcProperties();
+
+            return this.Height;
         }
     }
 }

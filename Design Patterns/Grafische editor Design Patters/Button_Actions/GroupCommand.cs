@@ -7,16 +7,16 @@ using System.Windows.Controls;
 namespace Design_Patters_Jaar2
 {
     /*
-     * CommandI for UN grouping different figures
-     * Execute functions handles UN grouping
+     * CommandI for grouping different figures
+     * Execute functions handles grouping
      */
-    class UnGroup : CommandI
+    class GroupCommand : CommandI
     {
-        private readonly List<Component> FigsSel;
+        private List<Component> FigsSel;
         private readonly List<Component> FigsAll;
         private Point Start, End;
         private Border BGroup;
-        public UnGroup(Point S, Point E, List<Component> FS, List<Component> FA, Border B)
+        public GroupCommand(Point S, Point E, List<Component> FS, List<Component> FA, Border B)
         {
             FigsSel = FS;
             FigsAll = FA;
@@ -47,16 +47,19 @@ namespace Design_Patters_Jaar2
                 BGroup.Height = Start.Y - End.Y;
             }
 
+            Group G = new Group();
+            
             /**
-             * For each figure in the FigsAll list remove them from the group
+             * For each figure in the FigsAll list add them to the group
              */
-            //foreach (Figure F in FigsAll)
-            //{
-            //    if (F.Left > Start.X && F.Left < End.X && F.Top > Start.Y && F.Top < End.Y && FigsSel.Count() != 0)
-            //    {
-            //        FigsSel[0].delGroup(F);
-            //    }
-            //}
+            foreach (Figure F in FigsAll)
+            {
+                if (F.Left > Start.X && F.Left < End.X && F.Top > Start.Y && F.Top < End.Y && FigsSel.Count() != 0)
+                {
+                    //FigsSel[0].addGroup(F)
+                    G.Add(F);
+                }
+            }
         }
     }
 }

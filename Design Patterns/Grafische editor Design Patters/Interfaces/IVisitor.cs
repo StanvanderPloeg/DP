@@ -6,6 +6,7 @@
     /// </summary>
    public interface IVisitor
     {
-         void Visit(Figure F);       
+        void Visit(Figure F);
+        void Visit(Grafische_editor_Design_Patters.Figures.Group group);
     }
 }

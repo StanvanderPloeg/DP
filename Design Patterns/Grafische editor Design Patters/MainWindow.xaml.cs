@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Grafische_editor_Design_Patters.Figures;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -22,13 +23,13 @@ namespace Design_Patters_Jaar2
         static Point Start;
         static Point End;
 
-        public static List<Figure> Fig_All = new List<Figure>();
-        public static List<Figure> FigsSel = new List<Figure>();
+        public static List<Component> Fig_All = new List<Component>();
+        public static List<Component> FigsSel = new List<Component>();
         private IDec decorator = new OrnamentDecTop();
 
-        // Invoker / Visitor Pattern
+        // Invoker / ResizeVisitor Pattern
         private Invoker Invoke_Pat = new Invoker();
-        private Visitor Vis_Pat;
+        private ResizeVisitor Vis_Pat;
         
         // Default OrnamentLocation
         private string OrnamentLocation = "Top";
@@ -37,7 +38,7 @@ namespace Design_Patters_Jaar2
         {
             InitializeComponent();
             ResetCanvas();
-            Vis_Pat = new Visitor(ref Fig_All, ref FigsSel, Start, End, ref DepPat);
+            Vis_Pat = new ResizeVisitor(ref Fig_All, ref FigsSel, Start, End, ref DepPat);
         }
         
         /**
@@ -221,7 +222,7 @@ namespace Design_Patters_Jaar2
 
         }
 
-        // If select / Group is being used: Move border / change end point
+        // If select / GroupCommand is being used: Move border / change end point
         private void DepPat_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)

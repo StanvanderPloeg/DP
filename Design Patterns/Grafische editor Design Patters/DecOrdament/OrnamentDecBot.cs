@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grafische_editor_Design_Patters.Figures;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

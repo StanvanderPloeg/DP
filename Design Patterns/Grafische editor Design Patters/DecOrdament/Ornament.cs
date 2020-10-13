@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Grafische_editor_Design_Patters.Figures;
+using System;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
+
 
 namespace Design_Patters_Jaar2
 {
@@ -10,14 +12,23 @@ namespace Design_Patters_Jaar2
      */
     public class Ornament
     {
+
+        public double Top, Left, Bot, Right;
+        public TextBlock OrnFig = new TextBlock();
+
+        public bool IsGrouped;
+        public readonly Canvas DepPat;
         protected string Text;
         protected string Loc;
         private readonly Shape Fig;
-        private TextBlock OrnFig = new TextBlock();
-        public Ornament(Canvas C, String T, string L, Shape F)
+        //private TextBlock OrnFig = new TextBlock();
+        public Ornament(Canvas C, String T, String L, Shape F)
         {
             OrnFig.Foreground = new SolidColorBrush(Colors.Black);
+
+            DepPat = C;
             Fig = F;
+
             OrnFig.Text = T;
             Text = T;
             Loc = L;
@@ -64,6 +75,11 @@ namespace Design_Patters_Jaar2
         public string GetLocation()
         {
             return Loc;
+        }
+
+        internal void Add(Ornament or)
+        {
+            throw new NotImplementedException();
         }
     }
 }
